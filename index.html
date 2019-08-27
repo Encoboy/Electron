@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <pre id="source"></pre>
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+    <script>
+      var readfile = require('remote').require('./readfile');
+      readfile(function (err,text) {
+        console.log('readfile:',err,next);
+        document.getElementById('source').innerText = text;
+      })
+    </script>
+  </body>
+</html>
